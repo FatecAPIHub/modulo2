@@ -1,0 +1,15 @@
+meta {
+  name: GET /login
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://localhost:8080/login
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
