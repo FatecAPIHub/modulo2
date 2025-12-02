@@ -4,7 +4,7 @@ server:
 spring:
   application:
     name: api-gateway
-  
+
   cloud:
     gateway:
       routes:
@@ -14,7 +14,7 @@ spring:
             - Path=/api/login/**
           filters:
             - RewritePath=/api/login/(?<segment>.*), /$\{segment}
-      
+
       # CORS Configuration
       globalcors:
         cors-configurations:

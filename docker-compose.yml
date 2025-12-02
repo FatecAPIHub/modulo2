@@ -1,1 +1,28 @@
 services:
+  login-service:
+    container_name: login-service
+    build:
+      context: ./src/login_service
+      dockerfile: ./dockerfile
+    networks:
+      - app-network
+    expose:
+      - "8081"
+    env_file:
+      - "./src/login_service/.env"
+
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: ./src/api_gateway
+      dockerfile: ./dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - login-service
+
+networks:
+  app-network:
+    driver: bridge
