@@ -6,10 +6,21 @@ meta {
 
 get {
   url: http://localhost:8080/api/user/update
-  body: none
+  body: json
   auth: inherit
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyYW5kb20iLCJ0eXBlIjoiQmVhcmVyIiwidXNlcm5hbWUiOiJyYW5kb20iLCJpYXQiOjE3NjQ2NDkwNTMsImV4cCI6MTc2NDczNTQ1M30.RlNBepDhHS9AaP8RkTFx2pPGXgAVKY7f33scsBjqZbwQGf_6WgjleOI4C1oMpi2h5Izv6JeUOlhdbZUs-Uwi_A
+}
+
+body:json {
+  {
+    "email": "novo email"
+  }
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }

@@ -11,7 +11,7 @@ spring:
         - id: login-service
           uri: ${LOGIN_SERVER_URI:http://login-service:8081}
           predicates:
-            - Path=/api/login/**
+            - Path=/api/**
           filters:
             - RewritePath=/api/login/(?<segment>.*), /$\{segment}
 
@@ -25,4 +25,7 @@ spring:
               - POST
               - PUT
               - DELETE
+              - OPTIONS
             allowedHeaders: "*"
+            exposedHeaders:
+              - Authorization

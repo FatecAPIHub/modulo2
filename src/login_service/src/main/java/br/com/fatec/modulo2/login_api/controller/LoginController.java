@@ -24,6 +24,14 @@ public class LoginController {
         this.jwtService = jwtService;
     }
 
+    @GetMapping("/health")
+    public ResponseEntity<Map<String, String>> health() {
+        return ResponseEntity.ok(Map.of(
+                "status", "UP",
+                "service", "login-service"
+        ));
+    }
+    
     /**
      * Endpoint de login
      * POST /login
@@ -54,4 +62,6 @@ public class LoginController {
                 .status(HttpStatus.UNAUTHORIZED)
                 .body(Map.of("error", "Credenciais inválidas"));
     }
+
+
 }

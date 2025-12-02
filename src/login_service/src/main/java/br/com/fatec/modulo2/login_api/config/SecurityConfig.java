@@ -1,5 +1,6 @@
 package br.com.fatec.modulo2.login_api.config;
 
+import br.com.fatec.modulo2.login_api.filter.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,13 +15,17 @@ public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register", "/health").permitAll()
+                        .requestMatchers("/api/login", "/api/register", "/api/health").permitAll()
                         .anyRequest().authenticated()
                 )
                 // Stateless - não cria sessão (usa JWT)
