@@ -6,10 +6,10 @@
     "node_modules",
     ".git"
   ],
-  "size": 0,
-  "filesCount": 0,
+  "size": 0.000148773193359375,
+  "filesCount": 2,
   "presets": {
     "requestType": "http",
-    "requestUrl": "https://localhost:8080/login"
+    "requestUrl": "http://localhost:8080/login"
   }
 }
