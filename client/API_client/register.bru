@@ -1,19 +1,19 @@
 meta {
-  name: POST /login
+  name: /register
   type: http
   seq: 2
 }
 
-post {
-  url: http://localhost:8080/api/login
+get {
+  url: http://localhost:8080/api/register
   body: json
   auth: inherit
 }
 
 body:json {
   {
-    "username": "admin",
-    "password": "admin123"
+    "username": "random",
+    "password": "123456789"
   }
 }
 
